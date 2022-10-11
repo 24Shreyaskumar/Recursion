@@ -1,4 +1,6 @@
 //multiple function calls
+//time complexity = O(2^n)
+//space comlexity = O(1)
 
 #include <bits/stdc++.h>
 #define ll long long int

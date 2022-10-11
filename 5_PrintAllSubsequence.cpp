@@ -1,4 +1,5 @@
-
+//time complexity = O(2^n)
+//space complexity = O(n)
 
 #include <bits/stdc++.h>
 #define vi vector<int>
