@@ -7,7 +7,7 @@
 #define F(i, n, m) for (int i = n; i < m; i++)
 using namespace std;
 
-bool flag = false;
+int countSeq = 0;
 
 void display(vi ans) {
     for (auto it : ans) cout<<it<<" ";
@@ -34,21 +34,42 @@ void PrintAll(vi v, int n,vi ans, int it, ll k, ll sum) {
 
 
 //Print any 1 subsequence
-void PrintAnyOne(vi v, int n,vi ans, int it, ll k, ll sum) {
+bool PrintAnyOne(vi v, int n,vi ans, int it, ll k, ll sum) {
     if (it >= n) {
-        if (sum == k && flag == false) {
+        if (sum == k) {
             display(ans);
-            flag = true;
+            return true;
+        }
+        return false;
+    }
+
+    ans.push_back(v[it]);
+    sum += ans.back();
+    if (PrintAnyOne(v, n, ans, it+1, k, sum)) return true;
+    sum -= ans.back();
+    ans.pop_back();
+    if (PrintAnyOne(v, n, ans, it+1, k, sum)) return true;
+
+    return false;
+}
+
+//Count the subsequences :
+void CountAll(vi v, int n,vi ans, int it, ll k, ll sum) {
+    if (it >= n) {
+        if (sum == k) {
+            countSeq++;
+            cout<<countSeq<<"] ";
+            display(ans);
         }
         return;
     }
 
     ans.push_back(v[it]);
     sum += ans.back();
-    PrintAnyOne(v, n, ans, it+1, k, sum);
+    CountAll(v, n, ans, it+1, k, sum);
     sum -= ans.back();
     ans.pop_back();
-    PrintAnyOne(v, n, ans, it+1, k, sum);
+    CountAll(v, n, ans, it+1, k, sum);
 
     return;
 }
@@ -73,6 +94,9 @@ int main() {
 
     cout<<"\nPrint any one Subsequence : \n";
     PrintAnyOne(v, n, ans, 0, k, 0);
+
+    cout<<"\nCount the number of Subsequences : \n";
+    CountAll(v, n, ans, 0, k, 0);
 
     return 0;
 }
