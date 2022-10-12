@@ -8,6 +8,8 @@
 #define ll long long int 
 using namespace std;
 
+vector<vi> sol;
+
 void display(vector<vi> sol) {
     for (auto row : sol) {
         for (auto i : row) cout<<i<<" ";
@@ -18,9 +20,8 @@ void display(vector<vi> sol) {
 }
 
 void push(vi ans) {
-    vector<vi> sol;
     sol.push_back(ans);
-    display(sol);
+    //display(sol);
 }
 
 void Solution(vi v, int n, vi ans, int it, ll k, ll x) {
@@ -55,6 +56,7 @@ int main() {
     ll k; cin>>k;
 
     Solution(v, n, ans, 0, k, k);
+    display(sol);
 
     return 0;
 }
