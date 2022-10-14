@@ -1,6 +1,6 @@
 //time complexity = O(2^n)
 //space complexity = O(n^2)
-//assuming the array to presorted
+
 
 //Brute Force : 
 // #include <bits/stdc++.h>
