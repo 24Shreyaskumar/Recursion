@@ -1,3 +1,7 @@
+//time complexity = O(n * 2^n)
+//space complexity = O(k * 2^n)
+//auxillary space complexity = O(n)
+
 #include <bits/stdc++.h>
 #define vi vector<int>
 #define vvi vector<vector<int>>
