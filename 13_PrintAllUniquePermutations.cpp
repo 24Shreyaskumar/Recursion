@@ -9,10 +9,13 @@
 using namespace std;
 
 void display(vvi ans) {
+    int count = 0;
     cout<<"\nOutput : \n";
     for (auto i : ans) {
+        cout<<count<<"] ";
         for (auto j : i) cout<<j<<" ";
         cout<<"\n";
+        count++;
     }
     return;
 }
@@ -43,6 +46,7 @@ int main() {
         int x; cin>>x;
         v.push_back(x);
     }
+    sort(v.begin(), v.end());
     vvi ans;
 
     Solution(v, ans, 0);
