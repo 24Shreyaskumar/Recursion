@@ -1,4 +1,5 @@
 //Problem of Bactracking
+//optimiszed using the concept of hashing
 //time complexity = 
 //space complexity =
 //auxillary space complexity = 
